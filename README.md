@@ -15,7 +15,7 @@ This is a Task Creation App that allows users to create tasks, assign tasks to u
 
 ## Getting Started
 
-To get started with the TIM EVENTS API, follow the instructions below to set up the project locally.
+To get started with the Task Creation App, follow the instructions below to set up the project locally.
 
 ## Installation
 
