@@ -1,8 +1,5 @@
 # Task Creation APP
-
-[![Build Status](https://travis-ci.com/ezeisraeljohn/task_creation.svg?branch=main)](https://travis-ci.com/ezeisraeljohn/task_creation)
-[![Coverage Status](https://coveralls.io/repos/github/ezeisraeljohn/task_creation/badge.svg?branch=main)](https://coveralls.io/github/ezeisraeljohn/task_creation?branch=main)
-[![Maintainability](https://api.codeclimate.com/v1/badges/6d5d5f3e1b6f2c2f9c9e/maintainability)](https://codeclimate.com/github/ezeisraeljohn/task_creation/maintainability)
+![Task Creation](task_creation.png)
 
 This is a Task Creation App that allows users to create tasks, assign tasks to users, and mark tasks as completed. The app is built with Django and Django REST Framework.
 
