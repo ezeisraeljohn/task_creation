@@ -35,7 +35,19 @@ class TaskViewSet(viewsets.ModelViewSet):
         Returns:
             QuerySet: The queryset of the tasks
         """
-        queryset = Task.objects.filter(assigned_to=self.request.user)
+        if self.request.user.is_superuser:
+            queryset = Task.objects.all()
+        else:
+            queryset = Task.objects.filter(assigned_to=self.request.user)
+
+        if self.request.query_params.get("title"):
+            title = self.request.query_params.get("title").strip()
+            queryset = queryset.filter(title__icontains=title)
+
+        if self.request.query_params.get("category"):
+            queryset = queryset.filter(
+                category=self.request.query_params.get("category")
+            )
 
         if self.request.query_params.get("status"):
             queryset = queryset.filter(status=self.request.query_params.get("status"))
@@ -44,8 +56,13 @@ class TaskViewSet(viewsets.ModelViewSet):
             queryset = queryset.filter(
                 priority=self.request.query_params.get("priority")
             )
-        if self.request.user.is_superuser:
-            queryset = Task.objects.all()
+
+        if self.request.query_params.get("due_date"):
+            queryset = queryset.filter(
+                due_date=self.request.query_params.get("due_date")
+            )
+        ordering = self.request.query_params.get("ordering", "due_date")
+        queryset = queryset.order_by(ordering)
         return queryset
 
     def perform_create(self, serializer):
