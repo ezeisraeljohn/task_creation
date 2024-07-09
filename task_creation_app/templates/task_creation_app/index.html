@@ -10,7 +10,7 @@
         <input
           placeholder="Search tasks"
           type="text"
-          class="bg-gray-200 w-64 ml-5 text-black border-0 p-2 rounded"
+          class="search bg-gray-200 w-64 ml-5 text-black border-0 p-2 rounded"
         />
       </div>
       <div class="flex gap-2 ml-auto mr-32">
@@ -123,7 +123,7 @@
         </div>
 
         <div
-          class="filter flex rounded w-24 items-center bg-gray-100 shadow-lg"
+          class="filter-div flex rounded w-24 items-center bg-gray-100 shadow-lg"
         >
           <div>
             <svg
@@ -148,7 +148,7 @@
             <input
               type="text"
               placeholder="filter"
-              class="w-full h-full bg-gray-100 outline-none focus:outline-none border-0 rounded"
+              class="filter w-full h-full bg-gray-100 outline-none focus:outline-none border-0 rounded"
             />
           </div>
         </div>
@@ -360,9 +360,7 @@
 
       <!-- Competed Column -->
       <div id="completed" class="p-4 rounded">
-        <div
-          class="after-completed flex p-2 rounded-lg mr-24 border-2 border-blue-600"
-        >
+        <div class="after-completed flex p-2 rounded-lg mr-24 border-2 border-blue-600">
           <h2 class="ml-3 text-xl font-bold">
             Completed <span class="num-completed opacity-20">0</span>
           </h2>
