@@ -16,17 +16,27 @@ from .views import api_root
 
 task_list = TaskViewSet.as_view({"get": "list", "post": "create"})
 task_detail = TaskViewSet.as_view(
-    {"get": "retrieve", "put": "update", "delete": "destroy"}
+    {
+        "get": "retrieve",
+        "put": "update",
+        "patch": "partial_update",
+        "delete": "destroy",
+    }
 )
 
 user_list = UserViewSet.as_view({"get": "list", "post": "create"})
 user_detail = UserViewSet.as_view(
-    {"get": "retrieve", "put": "update", "delete": "destroy"}
+    {
+        "get": "retrieve",
+        "put": "update",
+        "patch": "partial_update",
+        "delete": "destroy",
+    }
 )
 
 
 urlpatterns = [
-    path("", api_root, name="api-root"),
+    path("root/", api_root, name="api-root"),
     path("tasks/", task_list, name="task-list"),
     path("tasks/<int:pk>/", task_detail, name="task-detail"),
     path("users/", user_list, name="user-list"),
