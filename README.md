@@ -1,7 +1,8 @@
-# Task Creation APP
+# Task Creation App
+
 ![Task Creation](task_creation.png)
 
-This is a Task Creation App that allows users to create tasks, assign tasks to users, and mark tasks as completed. The app is built with Django and Django REST Framework.
+The Task Creation App allows users to create tasks, assign them to users, and mark tasks as completed. The app is built with Django and Django REST Framework.
 
 ## Table of Contents
 
@@ -18,6 +19,13 @@ This is a Task Creation App that allows users to create tasks, assign tasks to u
 To get started with the Task Creation App, follow the instructions below to set up the project locally.
 
 ## Installation
+
+### Prerequisites
+
+- Python 3.x
+- PostgreSQL or MySQL (optional, if you prefer not to use SQLite)
+
+### Steps
 
 1. **Clone the repository:**
 
@@ -41,54 +49,52 @@ To get started with the Task Creation App, follow the instructions below to set 
 
 4. **Configure the database:**
 
-    Ensure you have a PostgreSQL or MySQL database set up. Update the database settings in the `task_creatopm/settings.py` file.
+    Ensure you have a PostgreSQL or MySQL database set up. Update the database settings in the `task_creation/settings.py` file.
 
     ```python
-    DATABASE_URL = "postgresql://username:password@localhost/dbname"
-    ```
-    If none is available, you can still use the default sqlite database.
-
-    ```python
-        DATABASES = {
-                'default': {
-                'ENGINE': 'django.db.backends.sqlite3',
-                'NAME': BASE_DIR / 'db.sqlite3',
-                }
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': 'dbname',
+            'USER': 'username',
+            'PASSWORD': 'password',
+            'HOST': 'localhost',
+            'PORT': '5432',
         }
-        ```
+    }
+    ```
+
+    If none is available, you can still use the default SQLite database.
+
+    ```python
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
+    }
+    ```
 
 5. **Apply the migrations:**
 
     ```bash
-    python3 manage.py makemigrations
-    python3 manage.py migrage
+    python manage.py makemigrations
+    python manage.py migrate
     ```
 
 6. **Run the server:**
 
     ```bash
-    python3 manage.py runserver
+    python manage.py runserver
     ```
 
 ## Usage
 
-Once the server is running, you can interact with the Application using the link http://127.0.0.1:8000
+Once the server is running, you can interact with the application using the link [http://127.0.0.1:8000](http://127.0.0.1:8000)
 
 ## Testing
 
-## API Documentation
+To run the tests, use the following command:
 
-## Contributing
-
-We welcome contributions! Please follow these steps:
-
-1. Fork the repository.
-2. Create a new branch: `git checkout -b my-feature-branch`.
-3. Make your changes.
-4. Commit your changes: `git commit -m 'Add some feature'`.
-5. Push to the branch: `git push origin my-feature-branch`.
-6. Create a pull request.
-
-## License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+```bash
+python manage.py test
