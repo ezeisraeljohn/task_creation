@@ -1,14 +1,29 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.urls import reverse
+from django.contrib import messages
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
+from .forms import UserCreationForm
 
 
 def index(request):
     """The view function for the index page"""
-    return render(request, "task_creation_app/index.html")
+    return render(request, "task_creation_app/dashboard.html")
 
 
 def signup(request):
     """The view function for the signup page"""
-    return render(request, "registration/signup.html")
+    if request.method == "POST":
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(
+                request, "Account created successfully. You can now log in."
+            )
+            return redirect(reverse("login"))
+    else:
+        form = UserCreationForm()
+    return render(request, "registration/signup.html", context={"form": form})
 
 
 def members(request):
