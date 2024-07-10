@@ -314,7 +314,7 @@ $(document).ready(function () {
                   >
                   <button
                   type="submit"
-                  class="bg-blue-500 hover:bg-blue-700 mt-5 text-white font-bold py-2 px-4 rounded"
+                  class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
                 >
                   Save
                 </button>
@@ -330,7 +330,7 @@ $(document).ready(function () {
                                  <span class="close">&times;</span>
                                  <h2 class="text-xl font-bold mb-4">Delete Task</h2>
                                  <p>Are you sure you want to delete this task?</p>
-                                 <button id=delete-${response.id} class="bg-red-500 mt-5 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Delete</button>
+                                 <button id=delete-${response.id} class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Delete</button>
                                  </div>
                                  </div>
                                  </div>
