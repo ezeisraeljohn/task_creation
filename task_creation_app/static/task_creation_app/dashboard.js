@@ -5,7 +5,7 @@ $(document).ready(function () {
     url: 'http://127.0.0.1:8000/api/v1/tasks/',
     method: 'GET',
     headers: {
-      Authorization: 'Basic ' + btoa('ezeisraeljohn:testuser123')
+      'X-CSRFToken': $('input[name="csrfmiddlewaretoken"]').val()
     },
     success: (responses) => {
       responses.results.forEach((response) => {
@@ -314,7 +314,7 @@ $(document).ready(function () {
                   >
                   <button
                   type="submit"
-                  class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                  class="bg-blue-500 hover:bg-blue-700 mt-5 text-white font-bold py-2 px-4 rounded"
                 >
                   Save
                 </button>
@@ -330,7 +330,7 @@ $(document).ready(function () {
                                  <span class="close">&times;</span>
                                  <h2 class="text-xl font-bold mb-4">Delete Task</h2>
                                  <p>Are you sure you want to delete this task?</p>
-                                 <button id=delete-${response.id} class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Delete</button>
+                                 <button id=delete-${response.id} class="bg-red-500 mt-5 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Delete</button>
                                  </div>
                                  </div>
                                  </div>
@@ -361,7 +361,6 @@ $(document).ready(function () {
       method: 'POST',
       contentType: 'application/json',
       headers: {
-        Authorization: 'Basic ' + btoa('ezeisraeljohn:testuser123'),
         'X-CSRFToken': $('input[name="csrfmiddlewaretoken"]').val()
       },
       data: JSON.stringify(data),
@@ -748,7 +747,6 @@ $(document).ready(function () {
         method: 'PUT',
         contentType: 'application/json',
         headers: {
-          Authorization: 'Basic ' + btoa('ezeisraeljohn:testuser123'),
           'X-CSRFToken': $('input[name="csrfmiddlewaretoken"]').val()
         },
         data: JSON.stringify(data),
@@ -791,7 +789,6 @@ $(document).ready(function () {
         url: `http://127.0.0.1:8000/api/v1/tasks/${currentTaskID}/`,
         method: 'DELETE',
         headers: {
-          Authorization: 'Basic ' + btoa('ezeisraeljohn:testuser123'),
           'X-CSRFToken': $('input[name="csrfmiddlewaretoken"]').val()
         },
         success: function (response) {
@@ -844,7 +841,6 @@ $(document).ready(function () {
         method: 'PATCH',
         contentType: 'application/json',
         headers: {
-          Authorization: 'Basic ' + btoa('ezeisraeljohn:testuser123'),
           'X-CSRFToken': $('input[name="csrfmiddlewaretoken"]').val()
         },
         data: JSON.stringify(data),
