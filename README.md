@@ -1,5 +1,5 @@
 # Task Creation APP
-![Task Creation](task_creation.png)
+![Task Creation](![alt text](task_creation.png))
 
 This is a Task Creation App that allows users to create tasks, assign tasks to users, and mark tasks as completed. The app is built with Django and Django REST Framework.
 
@@ -41,7 +41,7 @@ To get started with the Task Creation App, follow the instructions below to set 
 
 4. **Configure the database:**
 
-    Ensure you have a PostgreSQL or MySQL database set up. Update the database settings in the `database.py` file.
+    Ensure you have a PostgreSQL or MySQL database set up. Update the database settings in the `task_creatopm/settings.py` file.
 
     ```python
     DATABASE_URL = "postgresql://username:password@localhost/dbname"
