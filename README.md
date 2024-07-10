@@ -111,7 +111,7 @@ To get started with the Task Creation App, follow the instructions below to set 
 
 ## Usage
 
-Once the server is running, you can interact with the application using the link [http://127.0.0.1:8000](http://127.0.0.1:8000)
+Once the server is running, you can interact with the application's dashboard using the link [http://127.0.0.1:8000/dashboard/](http://127.0.0.1:8000/dashboard/)
 
 ## Testing
 
