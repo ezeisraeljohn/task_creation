@@ -46,6 +46,7 @@ To get started with the Task Creation App, follow the instructions below to set 
     ```python
     DATABASE_URL = "postgresql://username:password@localhost/dbname"
     ```
+    If none is available, you can still use the default
 
 5. **Apply the migrations:**
 
