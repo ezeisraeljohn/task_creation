@@ -23,6 +23,7 @@ To get started with the Task Creation App, follow the instructions below to set 
 ### Prerequisites
 
 - Python 3.x
+- Node.js and npm
 - PostgreSQL or MySQL (optional, if you prefer not to use SQLite)
 
 ### Steps
@@ -47,7 +48,21 @@ To get started with the Task Creation App, follow the instructions below to set 
     pip install -r requirements.txt
     ```
 
-4. **Configure the database:**
+4. **Install Node.js dependencies:**
+
+    ```bash
+    npm install
+    ```
+
+5. **Build Tailwind CSS:**
+
+    Ensure you have npx installed (it comes with npm). Then run:
+
+    ```bash
+    npx tailwindcss build src/styles.css -o static/css/styles.css
+    ```
+
+6. **Configure the database:**
 
     Ensure you have a PostgreSQL or MySQL database set up. Update the database settings in the `task_creation/settings.py` file.
 
@@ -75,14 +90,20 @@ To get started with the Task Creation App, follow the instructions below to set 
     }
     ```
 
-5. **Apply the migrations:**
+7. **Apply the migrations:**
 
     ```bash
     python manage.py makemigrations
     python manage.py migrate
     ```
 
-6. **Run the server:**
+    create a superuser(if you want to access the admin page)
+    ```bash
+        python manage.py createsuperuser
+    ```
+    and follow the prompts to create a superuser.
+
+8. **Run the server:**
 
     ```bash
     python manage.py runserver
