@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     "compressor",
     "rest_framework.authtoken",
     "widget_tweaks",
+    "drf-yasg",
 ]
 
 MIDDLEWARE = [
