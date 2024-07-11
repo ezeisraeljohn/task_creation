@@ -1,0 +1,344 @@
+swagger: '2.0'
+info:
+  title: Task Creation API
+  description: This API helps to create and organize the creation of routine tasks
+  termsOfService: https://www.google.com/policies/terms/
+  contact:
+    email: ezeisraeljohn@gmail.com
+  license:
+    name: BSD License
+  version: v1
+host: 127.0.0.1:8000
+schemes:
+- http
+basePath: /api/v1
+consumes:
+- application/json
+produces:
+- application/json
+securityDefinitions:
+  Basic:
+    type: basic
+security:
+- Basic: []
+paths:
+  /root/:
+    get:
+      operationId: root_list
+      description: The function that defines the root of the API
+      parameters: []
+      responses:
+        '200':
+          description: ''
+      tags:
+      - root
+    parameters: []
+  /tasks/:
+    get:
+      operationId: tasks_list
+      description: The class that defines the views for the Task app
+      parameters:
+      - name: page
+        in: query
+        description: A page number within the paginated result set.
+        required: false
+        type: integer
+      responses:
+        '200':
+          description: ''
+          schema:
+            required:
+            - count
+            - results
+            type: object
+            properties:
+              count:
+                type: integer
+              next:
+                type: string
+                format: uri
+                x-nullable: true
+              previous:
+                type: string
+                format: uri
+                x-nullable: true
+              results:
+                type: array
+                items:
+                  $ref: '#/definitions/SerializeTask'
+      tags:
+      - tasks
+    post:
+      operationId: tasks_create
+      description: The class that defines the views for the Task app
+      parameters:
+      - name: data
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/SerializeTask'
+      responses:
+        '201':
+          description: ''
+          schema:
+            $ref: '#/definitions/SerializeTask'
+      tags:
+      - tasks
+    parameters: []
+  /tasks/{id}/:
+    get:
+      operationId: tasks_read
+      description: The class that defines the views for the Task app
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/SerializeTask'
+      tags:
+      - tasks
+    put:
+      operationId: tasks_update
+      description: The class that defines the views for the Task app
+      parameters:
+      - name: data
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/SerializeTask'
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/SerializeTask'
+      tags:
+      - tasks
+    patch:
+      operationId: tasks_partial_update
+      description: The class that defines the views for the Task app
+      parameters:
+      - name: data
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/SerializeTask'
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/SerializeTask'
+      tags:
+      - tasks
+    delete:
+      operationId: tasks_delete
+      description: The class that defines the views for the Task app
+      parameters: []
+      responses:
+        '204':
+          description: ''
+      tags:
+      - tasks
+    parameters:
+    - name: id
+      in: path
+      description: A unique integer value identifying this task.
+      required: true
+      type: integer
+  /users/:
+    get:
+      operationId: users_list
+      description: The class that defines the views for the User app
+      parameters:
+      - name: page
+        in: query
+        description: A page number within the paginated result set.
+        required: false
+        type: integer
+      responses:
+        '200':
+          description: ''
+          schema:
+            required:
+            - count
+            - results
+            type: object
+            properties:
+              count:
+                type: integer
+              next:
+                type: string
+                format: uri
+                x-nullable: true
+              previous:
+                type: string
+                format: uri
+                x-nullable: true
+              results:
+                type: array
+                items:
+                  $ref: '#/definitions/SerializeUser'
+      tags:
+      - users
+    post:
+      operationId: users_create
+      description: The class that defines the views for the User app
+      parameters:
+      - name: data
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/SerializeUser'
+      responses:
+        '201':
+          description: ''
+          schema:
+            $ref: '#/definitions/SerializeUser'
+      tags:
+      - users
+    parameters: []
+  /users/{id}/:
+    get:
+      operationId: users_read
+      description: The class that defines the views for the User app
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/SerializeUser'
+      tags:
+      - users
+    put:
+      operationId: users_update
+      description: The class that defines the views for the User app
+      parameters:
+      - name: data
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/SerializeUser'
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/SerializeUser'
+      tags:
+      - users
+    patch:
+      operationId: users_partial_update
+      description: The class that defines the views for the User app
+      parameters:
+      - name: data
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/SerializeUser'
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/SerializeUser'
+      tags:
+      - users
+    delete:
+      operationId: users_delete
+      description: The class that defines the views for the User app
+      parameters: []
+      responses:
+        '204':
+          description: ''
+      tags:
+      - users
+    parameters:
+    - name: id
+      in: path
+      description: A unique integer value identifying this user.
+      required: true
+      type: integer
+definitions:
+  SerializeTask:
+    required:
+    - title
+    - description
+    - status
+    - priority
+    - due_date
+    - category
+    type: object
+    properties:
+      id:
+        title: ID
+        type: integer
+        readOnly: true
+      title:
+        title: Title
+        type: string
+        maxLength: 200
+        minLength: 1
+      description:
+        title: Description
+        type: string
+        maxLength: 500
+        minLength: 1
+      status:
+        title: Status
+        type: string
+        enum:
+        - progress
+        - completed
+        - overdue
+      priority:
+        title: Priority
+        type: string
+        enum:
+        - Low
+        - Medium
+        - High
+      due_date:
+        title: Due date
+        type: string
+        format: date-time
+      category:
+        title: Category
+        type: string
+        maxLength: 200
+        minLength: 1
+      assigned_to:
+        title: Assigned to
+        type: integer
+        x-nullable: true
+  SerializeUser:
+    required:
+    - username
+    - password
+    type: object
+    properties:
+      id:
+        title: ID
+        type: integer
+        readOnly: true
+      username:
+        title: Username
+        description: Required. 150 characters or fewer. Letters, digits and @/./+/-/_
+          only.
+        type: string
+        pattern: ^[\w.@+-]+$
+        maxLength: 150
+        minLength: 1
+      email:
+        title: Email address
+        type: string
+        format: email
+        maxLength: 254
+      first_name:
+        title: First name
+        type: string
+        maxLength: 150
+      last_name:
+        title: Last name
+        type: string
+        maxLength: 150
+      password:
+        title: Password
+        type: string
+        minLength: 1
