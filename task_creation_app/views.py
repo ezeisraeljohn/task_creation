@@ -6,7 +6,7 @@ from django.contrib.auth.models import User
 from .forms import UserCreationForm
 
 
-def index(request):
+def dashboard(request):
     """The view function for the index page"""
     return render(request, "task_creation_app/dashboard.html")
 
