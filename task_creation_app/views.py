@@ -6,9 +6,10 @@ from django.contrib.auth.models import User
 from .forms import UserCreationForm
 
 
+@login_required(login_url="/accounts/login/")
 def dashboard(request):
     """The view function for the index page"""
-    return render(request, "task_creation_app/dashboard.html")
+    return render(request, "task_creation_app/dashboard.html", {})
 
 
 def signup(request):
@@ -26,6 +27,7 @@ def signup(request):
     return render(request, "registration/signup.html", context={"form": form})
 
 
+@login_required(login_url="/accounts/login/")
 def members(request):
     """The view function for the members page"""
     return render(request, "task_creation_app/members.html")
