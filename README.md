@@ -59,7 +59,7 @@ To get started with the Task Creation App, follow the instructions below to set 
     Ensure you have npx installed (it comes with npm). Then run:
 
     ```bash
-    npx tailwindcss build src/styles.css -o static/css/styles.css
+    npx tailwindcss -i ./task_creation_app/static/src/input.css -o ./task_creation_app/static/src/output.css
     ```
 
 6. **Configure the database:**
