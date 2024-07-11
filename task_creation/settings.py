@@ -37,6 +37,7 @@ ALLOWED_HOSTS = ["*"]
 # Application definition
 
 INSTALLED_APPS = [
+    "drf_yasg",
     "django.contrib.admin",
     "django.contrib.auth",
     "rest_framework",
@@ -49,7 +50,6 @@ INSTALLED_APPS = [
     "compressor",
     "rest_framework.authtoken",
     "widget_tweaks",
-    "drf-yasg",
 ]
 
 MIDDLEWARE = [
