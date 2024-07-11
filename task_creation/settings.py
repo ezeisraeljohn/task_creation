@@ -139,7 +139,6 @@ REST_FRAMEWORK = {
     "DEFAULT_AUTHENTICATION_CLASSES": [
         "rest_framework.authentication.TokenAuthentication",
         "rest_framework.authentication.SessionAuthentication",
-        "rest_framework.authentication.BasicAuthentication",
     ],
 }
 
@@ -154,3 +153,4 @@ STATICFILES_FINDERS = (
 )
 
 LOGIN_REDIRECT_URL = "dashboard"
+LOGIN_URL = "accounts/login/"
